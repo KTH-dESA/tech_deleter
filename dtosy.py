@@ -1,6 +1,7 @@
 #Scritp to delete technologies from an osemosys datapackage
 #%% Packages to import
 import os
+import sys
 import pandas as pd
 from shutil import copyfile
 #%% Read in datapackage
@@ -45,6 +46,7 @@ def main(dp_path,tech_path):
     p_n_dp = dp_new(dic_data,t2d.iloc[:,0])
 #%% Delete technology by executing script
 if __name__ == '__main__':
-    techs = 't2d.csv'
+    techs = sys.argv[1]
+    #techs = 't2d.csv'
     dp_path = ''
     main(dp_path,techs)
