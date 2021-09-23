@@ -6,7 +6,7 @@ import pandas as pd
 from shutil import copyfile
 #%% Read in datapackage
 def read_dp(path):
-#    path = '..' #for testing
+    path = '' #for testing
     #datafiles =list()
     datafiles = next(os.walk(path+'data'))
     dic = dict()
@@ -38,6 +38,8 @@ def dp_new(dic,techs):
             m = df.TECHNOLOGY.isin(techs)
             df = df[~m]
             df.to_csv(dp_new_path+'/'+i,index=False)
+        else:
+            df.to_csv(dp_new_path+'/'+i, index=False)
     return 
 #%% Main Function to execute the script
 def main(dp_path,tech_path):
