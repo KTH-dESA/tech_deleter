@@ -6,7 +6,7 @@ import pandas as pd
 from shutil import copyfile
 #%% Read in datapackage
 def read_dp(path):
-    path = '' #for testing
+    # path = '' #for testing
     #datafiles =list()
     datafiles = next(os.walk(path+'data'))
     dic = dict()
