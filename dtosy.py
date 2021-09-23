@@ -9,10 +9,12 @@ def read_dp(path):
     # path = '' #for testing
     #datafiles =list()
     datafiles = next(os.walk(path+'data'))
+    for root, dirs, files in os.walk(path+'data'):
+        datafiles = [f for f in files if not f[0] == '.']
     dic = dict()
     j = 0
-    for j in range(len(datafiles[2])):
-        dic[datafiles[2][j]] = pd.read_csv(path+'data/'+datafiles[2][j])
+    for j in range(len(datafiles)):
+        dic[datafiles[j]] = pd.read_csv(path+'data/'+datafiles[j])
     return dic
 #%% Function to delete technologies from dataframes
 def dp_new(dic,techs):
